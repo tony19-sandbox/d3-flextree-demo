@@ -13,6 +13,26 @@ import '../styles/layout-styles.js';
 import { EMPLOYEE_LIST, NEW_EMPLOYEE } from '../routes/urls';
 import { onLocationChanged } from '../routes/utils';
 
+import { flextree } from 'd3-flextree';
+
+function demoFlextree() {
+  const data = [1, 1, [2, 4], [3, 1, [4, 1]]];
+  const layout = flextree({
+    children: data => {
+      const kd = data.slice(2);
+      return kd.length ? kd : null;
+    },
+    nodeSize: node => node.data.slice(0, 2),
+    spacing: (nodeA, nodeB) => nodeA.path(nodeB).length
+  });
+  const tree = layout.hierarchy(data);
+  layout(tree);
+  // eslint-disable-next-line
+  console.log(layout.dump(tree)); // => prints the results
+}
+
+demoFlextree();
+
 /**
  * Starter application shell.
  *

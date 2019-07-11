@@ -37,6 +37,7 @@
     "@vaadin/vaadin-upload": "^4.2.2",
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "connect-history-api-fallback": "^1.6.0",
+    "d3-flextree": "^2.1.1",
     "express": "^4.17.1",
     "express-static-gzip": "^1.1.3"
   },
